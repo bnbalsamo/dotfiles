@@ -1,0 +1,1 @@
+This repository consists of my own common dotfiles for a couple of configurations/programs. It is meant to be used in combination with gnu stow in order to quickly roll some common configurations onto different machines/environments

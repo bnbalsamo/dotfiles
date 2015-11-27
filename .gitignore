@@ -1,0 +1,3 @@
+#Only add files we specify manually to git.
+*.priv
+
