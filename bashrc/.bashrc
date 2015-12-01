@@ -3,7 +3,7 @@
 #
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-if [[ -d ${HOME}/.loca./bin && ${PATH} != *${HOME}/.local/bin* ]] ; then
+if [[ -d ${HOME}/.local/bin && ${PATH} != *${HOME}/.local/bin* ]] ; then
         export PATH=${HOME}/.local/bin:"${PATH}:"
 fi
 
