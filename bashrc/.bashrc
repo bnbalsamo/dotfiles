@@ -15,7 +15,7 @@ export IMAGEVIEWER="/usr/bin/viewnior"
 export AUDIOPLAYER="/usr/bin/vlc"
 
 #Aliases
-alias ls='ls --color=auto'
+alias ls='ls -G'
 alias grep='grep --color=auto'
 alias playipod="rec -r 44100 -t wav -q - | play -t wav -q -"
 alias whatsmyip='curl ifconfig.me'
