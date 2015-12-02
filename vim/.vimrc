@@ -37,4 +37,5 @@ call pathogen#helptags()
 let g:pymode_python = 'python'
 let g:pymode_rope = 0
 let g:pymode_syntax_all = 0
+let g:pymode_lint_on_write = 0
 nnoremap <F8> :PymodeLint<CR>
