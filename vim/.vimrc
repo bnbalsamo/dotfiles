@@ -1,7 +1,9 @@
 set t_co=256
 set number
 set background=dark
+let mapleader = "-"
 syntax on
+filetype plugin indent on
 set linespace=0
 set hlsearch
 set autoindent
@@ -30,3 +32,10 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+call pathogen#infect()
+call pathogen#helptags()
+
+let g:pymode_python = 'python'
+let g:pymode_rope = 0
+let g:pymode_syntax_all = 0
+nnoremap <F8> :PymodeLint<CR>
