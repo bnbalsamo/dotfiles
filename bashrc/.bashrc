@@ -166,8 +166,8 @@ echo "     └──────────────────────
 }
 
 #If we have virtualenvwrapper installed configure it and set pip to require it. Make a pip over-ride alias "gpip"
-if [[ -f /usr/local/bin/virtualenvwrapper.sh  ]]; then
-    export WORKON_HOME=~/Envs && . /usr/local/bin/virtualenvwrapper.sh
+if [[ $(type -t virtualenvwrapper.sh) ]]; then
+    export WORKON_HOME=~/Envs && . $(type virtualenvwrapper.sh | awk '{print $NF}') 
     if [[ $(type -t pip) ]]; then
         export PIP_REQUIRE_VIRTUALENV=true &&\
         gpip() { PIP_REQUIRE_VIRTUALENV="" pip "$@"; }
