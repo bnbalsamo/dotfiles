@@ -3,6 +3,8 @@
 #
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+
+#Prepend ~/.local/bin to the path, if its not already there somewhere
 if [[ -d ${HOME}/.local/bin && ${PATH} != *${HOME}/.local/bin* ]] ; then
         export PATH=${HOME}/.local/bin:"${PATH}:"
 fi
@@ -162,5 +164,14 @@ for b in {0..8}; do
 done
 echo "     └──────────────────────────────────────────────────────────────────────────┘"
 }
+
+#If we have virtualenvwrapper installed configure it and set pip to require it. Make a pip over-ride alias "gpip"
+if [[ -f /usr/local/bin/virtualenvwrapper.sh  ]]; then
+    export WORKON_HOME=~/Envs && . /usr/local/bin/virtualenvwrapper.sh
+    if [[ $(type -t pip) ]]; then
+        export PIP_REQUIRE_VIRTUALENV=true &&\
+        gpip() { PIP_REQUIRE_VIRTUALENV="" pip "$@"; }
+    fi
+fi
 
 [[ -f ~/.bashrc.priv ]] && . ~/.bashrc.priv
