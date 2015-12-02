@@ -17,6 +17,12 @@ colorscheme zenburn
 set ignorecase smartcase
 set history=1000
 set cursorline
+nnoremap j gj
+nnoremap k gk
+nnoremap <down> gj
+nnoremap <up> gk
+set pastetoggle=<F2>
+set shiftround
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
