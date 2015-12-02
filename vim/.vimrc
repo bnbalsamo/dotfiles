@@ -1,4 +1,3 @@
-set t_co=256
 set number
 set background=dark
 let mapleader = "-"
