@@ -38,6 +38,7 @@ alias whatsmyip='curl ifconfig.me'
 alias define=sdcv
 alias startSamba="sudo systemctl start smbd.service nmbd.service"
 alias stopSamba="sudo systemctl stop smbd.service nmbd.service"
+alias coffeebreak='while [ true ]; do head -n 100 /dev/urandom; sleep .1; done | hexdump | grep "ca fe"'
 
 #Functions
 
