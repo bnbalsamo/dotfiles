@@ -9,7 +9,7 @@ if [[ -d ${HOME}/.local/bin && ${PATH} != *${HOME}/.local/bin* ]] ; then
         export PATH=${HOME}/.local/bin:"${PATH}:"
 fi
 
-PS1='[\u@\h (`date "+%I:%M%p"`) \W]`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)/`$ '
+PS1='[`date "+%I:%M%p"`][\u@\h \W]`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)/`$ '
 
 #Declarations
 export EDITOR="/usr/bin/vim"
