@@ -8,7 +8,7 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
+-- local naughty = require("naughty")
 local menubar = require("menubar")
 
 vicious=require("vicious")
@@ -279,7 +279,8 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
 --    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-    awful.key({ "Mod4" },            "r",     function () awful.util.spawn("dmenu_run -fn '-*-proggysquare-*-*-*-*-*-*-*-*-*-*-*-*' -nb '#2c2e2f' -nf '#888888' -sb '#2c2e2f' -sf '#dcdccc'")  end),
+--    awful.key({ "Mod4" },            "r",     function () awful.util.spawn("dmenu_run -fn '-*-proggysquare-*-*-*-*-*-*-*-*-*-*-*-*' -nb '#2c2e2f' -nf '#888888' -sb '#2c2e2f' -sf '#dcdccc'")  end),
+    awful.key({ "Mod4" },            "r",     function () awful.util.spawn("pyunch")  end),
     awful.key({ modkey,           }, "c", function () awful.util.spawn("firefox") end),
     awful.key({ modkey,           }, "e", function () awful.util.spawn("thunar") end),
     awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -q sset Master 2dB-") awful.util.spawn("dzvol -x 1650 -y 45 -bg '#2c2e2f' -fg '#dcdccc'") end),
@@ -384,6 +385,10 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
+    { rule = { class = "Pyunch" },
+      properties = { floating = true } },
+    { rule = { class = "Dunst" },
+      properties = { floating = true } },
     { rule = { class = "pinentry" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
@@ -469,6 +474,5 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-awful.util.spawn_with_shell("autocutsel -fork &")
-awful.util.spawn_with_shell("autocutsel -selection PRIMARY -fork &")
-awful.util.spawn_with_shell("/usr/bin/xscreensaver -no-splash &")
+awful.util.spawn_with_shell("dunst &")
+awful.util.spawn_with_shell("xrdb -merge ~/.Xresources &")
