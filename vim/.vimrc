@@ -12,7 +12,7 @@ set softtabstop=4
 nnoremap Y y$
 nnoremap ; :
 set mouse=a
-set background=dark
+let g:zenburn_high_Contrast=1
 colorscheme zenburn 
 "Searches only case sensitive when uppercase is present
 set ignorecase smartcase
@@ -35,7 +35,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 let g:pymode = 1
-let g:pymode_python = 'python'
+let g:pymode_python = 'python3'
 let g:pymode_rope = 0
 let g:pymode_syntax_all = 1
 let g:pymode_lint_on_write = 0

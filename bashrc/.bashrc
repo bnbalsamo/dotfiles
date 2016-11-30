@@ -184,9 +184,9 @@ echo "     └──────────────────────
 if [[ $(type -t virtualenvwrapper.sh) ]]; then
     export WORKON_HOME=~/Envs && . $(type virtualenvwrapper.sh | awk '{print $NF}') 
     export PROJECT_HOME=~/Projs
-    if [[ $(type -t pip) ]]; then
+    if [[ $(type -t pip3) ]]; then
         export PIP_REQUIRE_VIRTUALENV=true &&\
-        gpip() { PIP_REQUIRE_VIRTUALENV="" pip "$@"; }
+        gpip3() { PIP_REQUIRE_VIRTUALENV="" pip3 "$@"; }
     fi
 fi
 
