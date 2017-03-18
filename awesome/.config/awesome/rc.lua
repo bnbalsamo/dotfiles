@@ -40,7 +40,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+beautiful.init("~/.config/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -280,7 +280,7 @@ globalkeys = awful.util.table.join(
     -- Prompt
 --    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 --    awful.key({ "Mod4" },            "r",     function () awful.util.spawn("dmenu_run -fn '-*-proggysquare-*-*-*-*-*-*-*-*-*-*-*-*' -nb '#2c2e2f' -nf '#888888' -sb '#2c2e2f' -sf '#dcdccc'")  end),
-    awful.key({ "Mod4" },            "r",     function () awful.util.spawn("pyunch")  end),
+    awful.key({ "Mod4" },            "r",     function () awful.util.spawn("pyunch --background '#222222' --selectBackground '#444444' --foreground '#aaaaaa'")  end),
     awful.key({ modkey,           }, "c", function () awful.util.spawn("firefox") end),
     awful.key({ modkey,           }, "e", function () awful.util.spawn("thunar") end),
     awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -q sset Master 2dB-") awful.util.spawn("dzvol -x 1650 -y 45 -bg '#2c2e2f' -fg '#dcdccc'") end),

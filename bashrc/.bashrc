@@ -9,12 +9,46 @@ if [[ -d ${HOME}/.local/bin && ${PATH} != *${HOME}/.local/bin* ]] ; then
         export PATH=${HOME}/.local/bin:"${PATH}:"
 fi
 
-PS1='[`date "+%I:%M%p"`][\u@\h \W]`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)/`$ '
+__docker_machine_ps1 () {
+local format=${1:-[%s]}
+if test ${DOCKER_MACHINE_NAME}; then
+    local status
+    if test ${DOCKER_MACHINE_PS1_SHOWSTATUS:-false} = true; then
+        status=$(docker-machine status ${DOCKER_MACHINE_NAME})
+        case ${status} in
+            Running)
+                status=' R'
+                ;;
+            Stopping)
+                status=' R->S'
+                ;;
+            Starting)
+                status=' S->R'
+                ;;
+            Error|Timeout)
+                status=' E'
+                ;;
+            *)
+                # Just consider everything else as 'stopped'
+                status=' S'
+                ;;
+        esac
+    fi
+    printf -- "${format}" "${DOCKER_MACHINE_NAME}${status}"
+fi
+}
+
+PS1='$(__docker_machine_ps1 "[%s]")[\u@\h \W]`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)/`$ '
 
 #Declarations
-export EDITOR="/usr/bin/vim"
-export IMAGEVIEWER="/usr/bin/viewnior"
-export AUDIOPLAYER="/usr/bin/vlc"
+export EDITOR=$( ( [[ `type -t vim` ]] && which vim ) || \
+                 ( [[ `type -t vi` ]] && which vi ) || \
+                 ( [[ `type -t nano` ]] && which nano) )
+export IMAGEVIEWER=$([[ `type -t viewnior` ]] && which viewnior)
+export AUDIOPLAYER=$( ( [[ `type -t vlc` ]] && which vlc ) || \
+                      (  [[ `type -t mpg123` ]] && which mpg123 ) ) 
+export BROWSER=$( ( [[ `type -t firefox` ]] && which firefox ) || \
+                  ( [[ `type -t google-chrome-stable` ]] && which google-chrome-stable) ) 
 
 #Aliases
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -33,12 +67,11 @@ else
 	alias ls="ls"
 fi
 alias grep='grep --color=auto'
-alias playipod="rec -r 44100 -t wav -q - | play -t wav -q -"
 alias whatsmyip='curl ifconfig.me'
-alias define=sdcv
 alias startSamba="sudo systemctl start smbd.service nmbd.service"
 alias stopSamba="sudo systemctl stop smbd.service nmbd.service"
 alias coffeebreak='while [ true ]; do head -n 100 /dev/urandom; sleep 1; done | hexdump | grep "ca fe"'
+[[ `type -t docker-machine` ]] && alias "un-docker-machine-env"="echo -e 'unset DOCKER_TLS_VERIFY\nunset DOCKER_HOST\nunset DOCKER_CERT_PATH\nunset DOCKER_MACHINE_NAME\n# eval \$(un-docker-machine-env)'"
 
 #Functions
 
@@ -189,5 +222,6 @@ if [[ $(type -t virtualenvwrapper.sh) ]]; then
         gpip3() { PIP_REQUIRE_VIRTUALENV="" pip3 "$@"; }
     fi
 fi
+
 
 [[ -f ~/.bashrc.priv ]] && . ~/.bashrc.priv
