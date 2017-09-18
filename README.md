@@ -1,5 +1,10 @@
 This repository consists of my own common dotfiles for a couple of configurations/programs. It is meant to be used in combination with gnu stow in order to quickly roll some common configurations onto different machines/environments
 
+In order to pull:
+```
+git clone --recursive https://github.com/bnbalsamo/dotfiles.git
+```
+
 Various requirements/tweaks:
 
 Stow makes symlinking everything easy:
