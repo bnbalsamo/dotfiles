@@ -4,7 +4,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#Prepend ~/.local/bin to the path, if its not already there somewhere
+# Prepend ~/.local/bin to the path, if its not already there somewhere
 if [[ -d ${HOME}/.local/bin && ${PATH} != *${HOME}/.local/bin* ]] ; then
         export PATH=${HOME}/.local/bin:"${PATH}:"
 fi
@@ -51,6 +51,7 @@ export BROWSER=$( ( [[ `type -t firefox` ]] && which firefox ) || \
                   ( [[ `type -t google-chrome-stable` ]] && which google-chrome-stable) ) 
 
 #Aliases
+# Make things colorful
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	alias ls="ls --color=auto"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -67,102 +68,10 @@ else
 	alias ls="ls"
 fi
 alias grep='grep --color=auto'
-alias whatsmyip='curl ifconfig.me'
-alias startSamba="sudo systemctl start smbd.service nmbd.service"
-alias stopSamba="sudo systemctl stop smbd.service nmbd.service"
 alias coffeebreak='while [ true ]; do head -n 100 /dev/urandom; sleep 1; done | hexdump | grep "ca fe"'
-[[ `type -t docker-machine` ]] && alias "un-docker-machine-env"="echo -e 'unset DOCKER_TLS_VERIFY\nunset DOCKER_HOST\nunset DOCKER_CERT_PATH\nunset DOCKER_MACHINE_NAME\n# eval \$(un-docker-machine-env)'"
 
-#Functions
+# Functions
 
-function pdfify {
-    nohup unoconv -f pdf $1 >/dev/null 2>/dev/null
-}
-function encrypt {
-    gpg --symmetric --cipher-algo aes256 $1 1>&2 2>/dev/null
-}
-function decrypt {
-    gpg -d $1 > `echo $1 | rev | cut -c 5- | rev`
-}
-function decryptClipboard {
-    xclip -o | gpg -d
-}
-function encryptClipboard {
-    echo -n "Recepient: "
-    read recepient
-    xclip -o | gpg -ear $recepient | xclip -i
-    echo -n "Clipboard now a GPG encrypted message for "
-    echo $recepient
-}
-function encryptMail {
-    #Check for the mailx command, if it doesn't exist exit returning error code one.
-    command -v mailx >/dev/null 2>&1 || { echo -e >&2 "This program requires mailx but it's not installed.\nAborting."; return 1; }
-    #See if our mail.rc file exists. If not print a sample and exit returning error code 1. This DOES NOT cover all cases, and if you, for example, change the location of the mail.rc file, comment out or alter accordingly the next three lines.
-    if [[ ! -e /etc/mail.rc ]]; then
-        echo -e "\nThis program requires your mail command have a valid configuration file in /etc/mail.rc.\n This file should probably look like this with your own username and password substituted:\nset sendmail="/usr/bin/mailx"\nset smtp=smtp.gmail.com:587\nset smpt-use-starttls\nset ssl-verify=ignore\nset ssl-auth=login\nset smpt-auth-user=USERNAME@gmail.com\nset smpt-auth-password=GMAILPASSWORD\n" && return 1;
-    fi
-    # Grab the location of the current history file.
-    TEMPHIST=$HISTFILE
-    # Unset our bash history file.
-    HISTFILE="/dev/null"
-    # Read recepient email address (you must type the whole thing)
-    echo -n "Recepient Email: "
-    read recepient
-    # Read the subject text - THIS WILL BE SENT IN PLAIN TEXT, the standard behavior for gpg encrypted email.
-    echo -n "Subject: "
-    read subject
-    # Compose your message in a text file. Then attempt to remove that text file after the mail has been sent as securely as possible.
-    $EDITOR /tmp/msg
-    cat /tmp/msg | gpg -e -a -r $recepient | mail -s "$subject" $recepient
-    printf "\033c"
-    if [[ `command -v srm` -ne "" ]]; then
-        srm /tmp/msg && echo-e "\nMail sent and message file removed securely.\n"
-    else
-        rm /tmp/msg && echo -e "\nMail sent but we just rm'd the message file,\nwhich is not as secure as srm-ing it and\nleaves it vulnerable to certain retrieval\ntechniques. Consider installing srm.\n"
-    fi
-    #Reset the history file.
-    HISTFILE=$TEMPHIST
-}
-
-function signMail {
-    command -v mailx >/dev/null 2>&1 || { echo -e >&2 "This program requires mailx but it's not installed.\nAborting."; return 1; }
-    if [[ ! -e /etc/mail.rc ]]; then
-        echo -e "\nThis program requires your mail command have a valid configuration file in /etc/mail.rc.\n This file should probably look like this with your own username and password substituted:\nset sendmail="/usr/bin/mailx"\nset smtp=smtp.gmail.com:587\nset smpt-use-starttls\nset ssl-verify=ignore\nset ssl-auth=login\nset smpt-auth-user=USERNAME@gmail.com\nset smpt-auth-password=GMAILPASSWORD\n" && return 1;
-    fi
-    echo -n "Recepient Email: "
-    read recepient
-    echo -n "Subject: "
-    read subject
-    $EDITOR /tmp/msg
-    cat /tmp/msg | gpg --clearsign | mail -s "$subject" $recepient
-    rm /tmp/msg
-    
-}
-function encrypted {
-if [[ ! -n "$*"  ]]; then echo "Requires an argument"'!'"" && return 1; fi
-if [[ -d "~/Encrypted/$*" ]]; then echo "Already mounted" && return 0; fi
-mkdir "~/Encrypted/$*" && encfs "~/.encfs/$*" "~/Encrypted/$*" && return 0
-}
-function uencrypted {
-if [[ ! -n "$*"  ]]; then echo "Requires an argument"'!'"" && return 1; fi
-fusermount -u "~/Encrypted/$*" && echo "Your directory has been unmounted and is safe to remove" && rm -ir "~/Encrypted/$*" && return 0
-}
-function secure_chromium {
-    port=8080
-    chromium --proxy-server="socks://localhost:$port" &
-    exit
-}
-
-function i2p_chromium {
-    port=4444
-    chromium --incognito --proxy-server="socks://localhost:$port" &
-    exit
-}
-function graphtrust {
-    gpg --list-sigs | sig2dot > sigs.dot
-    springgraph < sigs.dot > sigs.png
-    feh sigs.png
-}
 extract () {
      if [ -f $1 ] ; then
          case $1 in
@@ -213,15 +122,5 @@ done
 echo "     └──────────────────────────────────────────────────────────────────────────┘"
 }
 
-#If we have virtualenvwrapper installed configure it and set pip to require it. Make a pip over-ride alias "gpip"
-if [[ $(type -t virtualenvwrapper.sh) ]]; then
-    export WORKON_HOME=~/Envs && . $(type virtualenvwrapper.sh | awk '{print $NF}') 
-    export PROJECT_HOME=~/Projs
-    if [[ $(type -t pip3) ]]; then
-        export PIP_REQUIRE_VIRTUALENV=true &&\
-        gpip3() { PIP_REQUIRE_VIRTUALENV="" pip3 "$@"; }
-    fi
-fi
-
-
+# Include a .bashrc.priv if one exists
 [[ -f ~/.bashrc.priv ]] && . ~/.bashrc.priv
