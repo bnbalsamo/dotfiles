@@ -40,6 +40,6 @@ let g:pymode_rope = 0
 let g:pymode_syntax_all = 1
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_on_fly = 0
-let g:pymode_options_max_line_length=120
-autocmd FileType python set colorcolumn=120
+let g:pymode_options_max_line_length=100
+autocmd FileType python set colorcolumn=100
 nnoremap <F8> :PymodeLint<CR>
