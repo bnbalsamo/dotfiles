@@ -53,6 +53,7 @@ nnoremap <F8> :PymodeLint<CR>
 
 "NERDTree Stuff
 "Open NERDTree when passing no arguments to vim
+let NERDTreeShowHidden=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "Open NERDTree if vim is opened with vim $some_dir
