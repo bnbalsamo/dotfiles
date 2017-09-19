@@ -43,3 +43,12 @@ let g:pymode_lint_on_fly = 0
 let g:pymode_options_max_line_length=100
 autocmd FileType python set colorcolumn=100
 nnoremap <F8> :PymodeLint<CR>
+
+"NERDTree Stuff
+"Open NERDTree when passing no arguments to vim
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"Open NERDTree if vim is opened with vim $some_dir
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
