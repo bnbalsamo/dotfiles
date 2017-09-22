@@ -9,7 +9,7 @@ theme.wallpaper = "~/.config/awesome/themes/zenburn/zenburn-background.png"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "Inconsolata 10"
+theme.font      = "Ubuntu Mono 10"
 
 -- {{{ Colors
 theme.fg_normal  = "#DCDCCC"
