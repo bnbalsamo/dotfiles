@@ -7,3 +7,18 @@
 [submodule "vim/.vim/bundle/editorconfig-vim"]
 	path = vim/.vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "pyenv/pyenv"]
+	path = pyenv/pyenv
+	url = https://github.com/pyenv/pyenv
+[submodule "pyenv/.pyenv"]
+	path = pyenv/.pyenv
+	url = https://github.com/pyenv/pyenv
+[submodule "pyenv-virtualenv/.pyenv/plugins/pyenv-virtualenv"]
+	path = pyenv-virtualenv/.pyenv/plugins/pyenv-virtualenv
+	url = https://github.com/pyenv/pyenv-virtualenv
+[submodule "pyenv-install-latest/.pyenv/plugins/pyenv-install-latest"]
+	path = pyenv-install-latest/.pyenv/plugins/pyenv-install-latest
+	url = https://github.com/momo-lab/pyenv-install-latest
+[submodule "nvm/.nvm"]
+	path = nvm/.nvm
+	url = https://github.com/creationix/nvm

@@ -5,6 +5,11 @@ In order to pull:
 git clone --recursive https://github.com/bnbalsamo/dotfiles.git
 ```
 
+To update submodules:
+```
+git submodule update --recursive
+```
+
 Various requirements/tweaks:
 
 Stow makes symlinking everything easy:
@@ -22,5 +27,5 @@ for x in dotfiles/*; do stow -R $x; done
 
 Software gotchas
 
-- The xinit assumes thunar and redshift are installed. If they're not it shouldn't break anything. It also assumes the use of awesome.
+- The xinit assumes thunar, redshift, and nm-applet are installed. If they're not it shouldn't break anything. It also assumes the use of awesome.
 - The awesome rc.lua uses my own pyunch utility as a launcher. There's a line for dmenu right above it. Swap which line is commented (and install dmenu) to use it instead.
