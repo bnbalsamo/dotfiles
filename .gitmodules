@@ -7,9 +7,6 @@
 [submodule "vim/.vim/bundle/editorconfig-vim"]
 	path = vim/.vim/bundle/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
-[submodule "pyenv/pyenv"]
-	path = pyenv/pyenv
-	url = https://github.com/pyenv/pyenv
 [submodule "pyenv/.pyenv"]
 	path = pyenv/.pyenv
 	url = https://github.com/pyenv/pyenv
