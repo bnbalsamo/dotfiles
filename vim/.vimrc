@@ -17,8 +17,8 @@ set shiftround
 
 "Color Stuff
 set background=dark
-let g:zenburn_high_Contrast=1
-colorscheme zenburn 
+"let g:zenburn_high_Contrast=1
+"colorscheme zenburn
 
 "Keybindings
 "Tab navigation
@@ -72,3 +72,6 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 "Pathogen Stuff
 call pathogen#infect()
 call pathogen#helptags()
+
+"Make the line length column less aggressive
+highlight ColorColumn ctermbg=DarkCyan

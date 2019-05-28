@@ -1,30 +1,59 @@
-!*background:  #3f3f3f
-URxvt*background:  #1e2320
-*foreground: #dcdccc
 URxvt*font: xft:Ubuntu Mono:size=12:antialias=true:hinting=true
 *scrollBar: false
 !Zenburn
+! URxvt*background:  #1e2320
+! *foreground: #dcdccc
 ! black + red
-URxvt*color0:      #1E2320
-URxvt*color1:      #d78787
+! URxvt*color0:      #1E2320
+! URxvt*color1:      #d78787
 ! green + yellow
-URxvt*color2:      #60b48a
-URxvt*color3:      #dfaf8f
+! URxvt*color2:      #60b48a
+! URxvt*color3:      #dfaf8f
 ! blue + purple
-URxvt*color4:      #6e869f
-URxvt*color5:      #dc8cc3
+! URxvt*color4:      #6e869f
+! URxvt*color5:      #dc8cc3
 ! cyan + white
-URxvt*color6:      #8cd0d3
-URxvt*color7:      #dcdccc
+! URxvt*color6:      #8cd0d3
+! URxvt*color7:      #dcdccc
 ! bright-black + bright-red
-URxvt*color8:      #709080
-URxvt*color9:      #dca3a3
+! URxvt*color8:      #709080
+! URxvt*color9:      #dca3a3
 ! bright-green + bright-yellow
-URxvt*color10:     #c3bf9f
-URxvt*color11:     #f0dfaf
+! URxvt*color10:     #c3bf9f
+! URxvt*color11:     #f0dfaf
 ! bright-blue + bright-purple
-URxvt*color12:     #94bff3
-URxvt*color13:     #ec93d3
+! URxvt*color12:     #94bff3
+! URxvt*color13:     #ec93d3
 ! bright-cyan + bright-white
-URxvt*color14:     #93e0e3
-URxvt*color15:     #ffffff
+! URxvt*color14:     #93e0e3
+! URxvt*color15:     #ffffff
+
+! Gruvbox
+*background: #1d2021
+! medium contrast *background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2

@@ -78,7 +78,7 @@ extract () {
              *.tar.bz2)   tar xjf $1        ;;
              *.tar.gz)    tar xzf $1     ;;
              *.bz2)       bunzip2 $1       ;;
-             *.rar)       rar x $1     ;;
+             *.rar)       unrar e $1     ;;
              *.gz)        gunzip $1     ;;
              *.tar)       tar xf $1        ;;
              *.tbz2)      tar xjf $1      ;;
