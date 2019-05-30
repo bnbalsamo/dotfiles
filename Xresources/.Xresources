@@ -1,4 +1,4 @@
-URxvt*font: xft:Ubuntu Mono:size=12:antialias=true:hinting=true
+URxvt*font: xft:UbuntuMono Nerd Font Mono:size=12:antialias=true:hinting=true
 *scrollBar: false
 !Zenburn
 ! URxvt*background:  #1e2320
