@@ -152,5 +152,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 # pyenv virtualenv
 [ -s "$PYENV_ROOT/plugins/pyenv-virtualenv" ] && [[ `type -t pyenv` ]] && eval "$(pyenv virtualenv-init -)"
 
+# gruvbox colorscheme
+[ -s "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh" ] && source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+
 # Include a .bashrc.priv if one exists
 [[ -f ~/.bashrc.priv ]] && . ~/.bashrc.priv

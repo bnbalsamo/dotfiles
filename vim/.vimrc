@@ -19,6 +19,10 @@ set shiftround
 set background=dark
 "let g:zenburn_high_Contrast=1
 "colorscheme zenburn
+let g:gruvbox_italic=1
+let g:gruvbox_contrast_dark = "hard"
+let g:airline_theme='gruvbox'
+colorscheme gruvbox
 
 "Keybindings
 "Tab navigation
