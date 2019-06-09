@@ -35,6 +35,11 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# lock the screen.
+# This will use your Desktop, or if the file isn't found
+# it will drop through to use the color
+bindsym $mod+Shift+x exec i3lock -i ~/Pictures/Desktop.png -c 1d2021
+
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run -i -fn "Ubuntu Mono-10" -nb "#1d2021" -nf "#ebdbb2" -sb "#689f68" -sf "#1d2021"
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -128,6 +133,11 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the scratchpad window
+bindsym $mod+minus scratchpad show
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

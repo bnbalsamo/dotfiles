@@ -155,5 +155,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 # gruvbox colorscheme
 [ -s "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh" ] && source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 
+# If we have fzf installed...
+[[ `type -t fzf` ]] && source ~/.fzf_keybindings && source ~/.fzf_completion
+
+
 # Include a .bashrc.priv if one exists
 [[ -f ~/.bashrc.priv ]] && . ~/.bashrc.priv
