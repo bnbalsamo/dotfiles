@@ -240,3 +240,11 @@ bar {
 
 # Use feh to set a Desktop Background
 exec --no-startup-id [ -e ~/Pictures/Desktop.png ] && feh --bg-scale ~/Pictures/Desktop.png
+
+# Autostart stuff, if it's installed
+# redshift
+exec --no-startup-id which redshift-gtk && redshift-gtk
+# Network Manager Tray icon
+exec --no-startup-id which nm-tray && nm-tray
+# dunst for notifications
+exec --no-startup-id which dunst && dunst
