@@ -1,0 +1,19 @@
+# Tools that require some extra config
+
+# NVM
+[ -d $HOME/.nvm ] && export NVM_DIR="$HOME/.nvm" && \
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# pyenv + pyenv virtualenv
+[ -d $HOME/.pyenv ] && export PYENV_ROOT="$HOME/.pyenv" && \
+[ -s "$PYENV_ROOT" ] && export PATH="$PYENV_ROOT/bin:$PATH" && \
+[[ `type -t pyenv` ]] && eval "$(pyenv init -)" && \
+[ -s "$PYENV_ROOT/completions/pyenv.bash" ] && \. "$PYENV_ROOT/completions/pyenv.bash" && \
+[ -s "$PYENV_ROOT/plugins/pyenv-virtualenv" ] && [[ `type -t pyenv` ]] && eval "$(pyenv virtualenv-init -)"
+
+# gruvbox colorscheme
+[ -s "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh" ] && source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
+
+# fzf 
+[[ `type -t fzf` ]] && source ~/.fzf_keybindings && source ~/.fzf_completion
