@@ -1,4 +1,4 @@
-This repository consists of my own common dotfiles for a couple of configurations/programs. It is meant to be used in combination with gnu stow in order to quickly roll some common configurations onto different machines/environments
+This repository consists of my own common dotfiles for a couple of configurations/programs. It is meant to be used in combination with [GNU Stow](https://www.gnu.org/software/stow/) in order to quickly roll some common configurations onto different machines/environments
 
 In order to pull:
 ```bash
@@ -12,7 +12,18 @@ $ # From $HOME/dotfiles
 $ git submodule update --recursive
 ```
 
-Back up/delete any conflicts, if a fresh system has files in place already
+To install stow:
+
+The preferred method is to use your systems package manager to install stow.
+
+If, for whatever reason, that isn't possible, the the `install_stow.sh` command
+will install stow entirely in userspace. Eg:
+```bash
+$ # From $HOME/dotfiles
+$ ./install_stow.sh
+```
+
+Back up/delete any conflicts, if a system has files in place already.
 
 The stow dry run command will produce errors if files would conflict:
 
