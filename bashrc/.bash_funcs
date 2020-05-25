@@ -66,3 +66,15 @@ for b in {0..8}; do
 done
 echo "     └──────────────────────────────────────────────────────────────────────────┘"
 }
+
+function blank_ps1 {
+    # Useful for example, readable copy/paste, etc
+    export _PS1_BAK=$PS1
+    export PS1="$ "
+}
+
+function unblank_ps1 {
+    # Undo blank_ps1
+    export PS1=$_PS1_BAK
+    unset _PS1_BAK
+}

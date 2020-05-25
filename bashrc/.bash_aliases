@@ -1,29 +1,35 @@
 # Make things colorful
 # ls
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-    alias ls="ls --color=auto"
+    LS_COLOR=" --color=auto"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    alias ls="ls -G"
+    LS_COLOR=" -G"
 elif [[ "$OSTYPE" == "cygwin" ]]; then
-    alias ls="ls --color=auto"
+    LS_COLOR=" --color=auto"
 elif [[ "$OSTYPE" == "msys" ]]; then
-    alias ls="ls --color=auto"
-elif [[ "$OSTYPE" == "win32" ]]; then
-    alias ls="ls"
+    LS_COLOR==" --color=auto"
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
-    alias ls="ls -G"
+    LS_COLOR=" -G"
 else
-    alias ls="ls"
+    LS_COLOR=""
 fi
 # grep
 alias grep='grep --color=auto'
 
+# Make LS output nicer and more informative
+alias ls="ls -lhF${LS_COLOR}"
 
 # Clobber certain common commands if repalcements exist
+# Clobber cat with bat, if it exists
+# https://github.com/sharkdp/bat
 # Sometimes bat installs weirdly due to a name conflict
 [[ `type -t batcat` ]] && alias bat=batcat
 # If bat is installed use it instead of cat
 [[ `type -t bat` ]] && alias cat="bat -p"
+
+# Clobber ls with exa, if it exists
+# https://the.exa.website/
+[[ `type -t exa` ]] && alias ls="exa -lhF --tree -L1"
 
 
 # Funsies
