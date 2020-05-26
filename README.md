@@ -9,7 +9,7 @@ $ git clone --recursive https://github.com/bnbalsamo/dotfiles.git
 To update submodules:
 ```bash
 $ # From $HOME/dotfiles
-$ git submodule update --recursive
+$ git submodule update --recursive --remote
 ```
 
 To install stow:
