@@ -17,7 +17,7 @@ fi
 alias grep='grep --color=auto'
 
 # Make LS output nicer and more informative
-alias ls="ls -lhF${LS_COLOR}"
+alias ls="ls -lhF --group-directories-first${LS_COLOR}"
 
 # Clobber certain common commands if repalcements exist
 # Clobber cat with bat, if it exists
@@ -29,7 +29,7 @@ alias ls="ls -lhF${LS_COLOR}"
 
 # Clobber ls with exa, if it exists
 # https://the.exa.website/
-[[ `type -t exa` ]] && alias ls="exa -lhF --tree -L1"
+[[ `type -t exa` ]] && alias ls="exa -lhF --tree -L1 --group-directories-first"
 
 
 # Funsies
