@@ -75,6 +75,9 @@ function blank_ps1 {
 
 function unblank_ps1 {
     # Undo blank_ps1
+    if [ -z "$_PS1_BAK" ]; then
+        return;
+    fi
     export PS1=$_PS1_BAK
     unset _PS1_BAK
 }
