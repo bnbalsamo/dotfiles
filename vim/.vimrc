@@ -51,8 +51,8 @@ let g:pymode_rope = 0
 let g:pymode_syntax_all = 1
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_on_fly = 0
-let g:pymode_options_max_line_length=100
-autocmd FileType python set colorcolumn=100
+let g:pymode_options_max_line_length=88
+autocmd FileType python set colorcolumn=88
 nnoremap <F8> :PymodeLint<CR>
 
 "NERDTree Stuff
