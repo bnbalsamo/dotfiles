@@ -26,6 +26,7 @@ alias ls="ls -lhF --group-directories-first${LS_COLOR}"
 [[ `type -t batcat` ]] && alias bat=batcat
 # If bat is installed use it instead of cat
 [[ `type -t bat` ]] && alias cat="bat -p"
+[[ `type -t bat` ]] && alias less="bat -p --paging=always"
 
 # Clobber ls with exa, if it exists
 # https://the.exa.website/

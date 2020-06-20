@@ -47,7 +47,7 @@ nnoremap ; :
 "Pymode Stuff
 let g:pymode = 1
 let g:pymode_python = 'python3'
-let g:pymode_rope = 0
+let g:pymode_rope = 1
 let g:pymode_syntax_all = 1
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_on_fly = 0
@@ -57,9 +57,10 @@ nnoremap <F8> :PymodeLint<CR>
 
 "NERDTree Stuff
 "Open NERDTree when passing no arguments to vim
+"If in a repo, set the repo root as the nerdtree root
 let NERDTreeShowHidden=1
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTreeVCS | endif
 "Open NERDTree if vim is opened with vim $some_dir
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
