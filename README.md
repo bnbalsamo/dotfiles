@@ -3,13 +3,15 @@ This repository consists of my own common dotfiles for a couple of configuration
 In order to pull:
 ```bash
 $ # From $HOME
-$ git clone --recursive https://github.com/bnbalsamo/dotfiles.git
+$ git clone --recurse-submodules https://github.com/bnbalsamo/dotfiles.git
 ```
 
-To update submodules:
+To update/retrieve submodules:
 ```bash
 $ # From $HOME/dotfiles
-$ git submodule update --recursive --remote
+$ git submodule update --init --recursive --remote
+$ # Note --remote means you get the most up to date upstream
+$ # Potentially not whats actually in *this* repo
 ```
 
 To install stow:
