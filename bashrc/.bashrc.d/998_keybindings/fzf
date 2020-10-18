@@ -1,3 +1,6 @@
+# Stop execution if fzf isn't installed
+[[ ! `type -t fzf` ]] && return
+
 # Key bindings
 # ------------
 __fzf_select__() {

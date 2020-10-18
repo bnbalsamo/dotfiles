@@ -9,6 +9,9 @@
 # - $FZF_COMPLETION_TRIGGER (default: '**')
 # - $FZF_COMPLETION_OPTS    (default: empty)
 
+# Stop execution if fzf isn't installed
+[[ ! `type -t fzf` ]] && return
+
 if [[ $- =~ i ]]; then
 
 # To use custom commands instead of find, override _fzf_compgen_{path,dir}
