@@ -25,3 +25,6 @@
 [submodule "vim/.vim/bundle/vim-airline"]
 	path = vim/.vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline
+[submodule "pyenv-latest/.pyenv/plugins/xxenv-latest"]
+	path = pyenv-latest/.pyenv/plugins/xxenv-latest
+	url = https://github.com/momo-lab/xxenv-latest.git
