@@ -1,0 +1,51 @@
+# Program defensively in this file, it will be run
+# by any python that starts, regardless of version or venv.
+# (Unless relevant CLI flags are passed / env vars are set)
+
+# All functions in this file should be private,
+# to avoid polluting the global namespace.
+
+# All imports should be within functions.
+
+
+def _prereqs():
+    # Only python 3
+    import sys
+    if sys.version_info.major != 3:
+        return False
+    return True
+
+
+def _rich():
+    try:
+        import rich
+    except ImportError:
+        return
+    from rich import print
+    print(":sparkles: Rich installed, configuring REPL integrations...")
+
+    # Nice default printing
+    from rich import pretty
+    pretty.install()
+
+    # Nice tracebacks
+    from rich import traceback
+    traceback.install()
+
+    # Nice logging
+    import logging
+    from rich.logging import RichHandler
+    root_logger = logging.getLogger()
+    root_logger.addHandler(RichHandler())
+    print("Rich REPL integrations configured. :thumbs_up:")
+
+
+def _pythonrc():
+    if not _prereqs():
+        return
+    _rich()
+
+
+print("Running $HOME/.pythonrc")
+print("To disable running this file unset the PYTHONSTARTUP env var.")
+_pythonrc()
