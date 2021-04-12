@@ -14,6 +14,7 @@ set ignorecase smartcase
 set history=1000
 set cursorline
 set shiftround
+set backspace=indent,eol,start
 
 "Color Stuff
 set background=dark
