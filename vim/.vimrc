@@ -45,16 +45,14 @@ nnoremap <up> gk
 nnoremap Y y$
 nnoremap ; :
 
-"Pymode Stuff
-let g:pymode = 1
-let g:pymode_python = 'python3'
-let g:pymode_rope = 0
-let g:pymode_syntax_all = 1
-let g:pymode_lint_on_write = 0
-let g:pymode_lint_on_fly = 0
-let g:pymode_options_max_line_length=88
+"Python Stuff
 autocmd FileType python set colorcolumn=88
-nnoremap <F8> :PymodeLint<CR>
+let g:python_highlight_all=1
+let g:python_highlight_func_calls=0
+let g:python_highlight_operators=0
+let g:SimpylFold_fold_import=0
+let g:SimpylFold_docstring_preview=1
+
 
 "NERDTree Stuff
 "Open NERDTree when passing no arguments to vim

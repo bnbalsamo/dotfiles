@@ -1,6 +1,3 @@
-[submodule "vim/.vim/bundle/python-mode"]
-	path = vim/.vim/bundle/python-mode
-	url = https://github.com/python-mode/python-mode.git
 [submodule "vim/.vim/bundle/nerdtree"]
 	path = vim/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -28,3 +25,9 @@
 [submodule "pyenv-latest/.pyenv/plugins/xxenv-latest"]
 	path = pyenv-latest/.pyenv/plugins/xxenv-latest
 	url = https://github.com/momo-lab/xxenv-latest.git
+[submodule "vim/.vim/bundle/SimpylFold"]
+	path = vim/.vim/bundle/SimpylFold
+	url = https://github.com/tmhedberg/SimpylFold.git
+[submodule "vim/.vim/bundle/python-syntax"]
+	path = vim/.vim/bundle/python-syntax
+	url = https://github.com/vim-python/python-syntax.git
