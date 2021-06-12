@@ -1,6 +1,5 @@
 #
 # ~/.bash_profile
 #
-
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-[[ -f ~/.bash_profile.priv ]] && . ~/.bash_profile.priv
+[[ -f $HOME/.profile ]] && . ~/.profile
+[[ -f $HOME/.bashrc ]] && . ~/.bashrc

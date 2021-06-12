@@ -31,3 +31,6 @@
 [submodule "vim/.vim/bundle/python-syntax"]
 	path = vim/.vim/bundle/python-syntax
 	url = https://github.com/vim-python/python-syntax.git
+[submodule "vim/.vim/bundle/vim-python-pep8-indent"]
+	path = vim/.vim/bundle/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent.git

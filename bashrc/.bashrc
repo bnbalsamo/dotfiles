@@ -10,7 +10,15 @@
 
 # Source drop-ins
 # See ~/.bashrc.d/*
-for f in $(find $HOME/.bashrc.d/ -type f -name *.bash | sort); do . $f; done
+if [ -d $HOME/.bashrc.d ]; then
+    for i in $HOME/.bashrc.d/**/*.bash; do
+        if [ -r $i ]; then
+            . $i
+        fi
+    done
+    unset i
+fi
+
 
 # Include a .bashrc.priv if one exists
 [[ -f ~/.bashrc.priv ]] && . ~/.bashrc.priv

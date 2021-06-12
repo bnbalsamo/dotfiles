@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+    name = Brian Balsamo
+    email = Brian@BrianBalsamo.com 
+
+[core]
+    excludesfile = ~/.gitignore_global
+[pull]
+    ff = only

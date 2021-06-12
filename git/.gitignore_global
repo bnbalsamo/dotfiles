@@ -1,0 +1,5 @@
+# Global .gitignore
+*.swp
+.envrc
+*.pyc
+__pycache__
