@@ -81,3 +81,33 @@ function unblank_ps1 {
     export PS1=$_PS1_BAK
     unset _PS1_BAK
 }
+
+# Mostly for use w/ PS1
+function join_by () {
+    local JOINER="$1"
+    shift
+
+    # skip empty entries
+    while [ -z $1 ]; do
+        # catch the case where there are no entries
+        if [ -z ${1+x} ]; then
+            return
+        fi
+        shift
+    done
+
+    # First one, no preceding joiner
+    echo -n "$1"
+    shift
+
+    # The rest, include preceding joiner
+    # Don't print empty entries
+    for item in "$@"; do
+        if [ ! -z "$1" ]; then
+            echo -n "${JOINER}${1}"
+            shift
+        else
+            shift
+        fi
+    done
+}
