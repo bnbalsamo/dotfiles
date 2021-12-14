@@ -8,6 +8,9 @@ fi
 # Use a python startup file if one exists
 if [[ -e $HOME/.pythonrc ]]; then export PYTHONSTARTUP=$HOME/.pythonrc; fi
 
+# Disable virtualenv activation changing the prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
 
 # Some handy global vars for opening things
 export EDITOR=$( ( [[ `type -t vim` ]] && which vim ) || \

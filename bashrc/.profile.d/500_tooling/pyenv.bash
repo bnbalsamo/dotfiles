@@ -10,7 +10,7 @@
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+[[ `type -t pyenv` ]] && eval "$(pyenv init --path)"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
